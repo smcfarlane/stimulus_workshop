@@ -1,0 +1,21 @@
+{
+  "name": "stimulus_workshop",
+  "private": true,
+  "dependencies": {
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "4.3.0",
+    "jest": "^26.6.3",
+    "jest-plugin-context": "^2.9.0",
+    "stimulus": "^2.0.0",
+    "turbolinks": "^5.2.0"
+  },
+  "version": "0.1.0",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.0"
+  }
+}

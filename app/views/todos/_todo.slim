@@ -1,0 +1,10 @@
+.card.text-white.bg-secondary.mb-3(data-controller="todo-card clipboard" data-todo-card-url-value=(list_todo_path(todo.list.id, todo.id)) data-todo-card-completed-value=(todo.completed))
+  .card-body.d-flex.justify-content-between
+    .form-check
+      - id = "todo-check-#{todo.id}"
+      input.form-check-input(type="checkbox" id=(id) checked=(todo.completed) data-target="todo-card.check" data-action="change->todo-card#onTodoCheckChanged")
+    .card-title.text-white.flex-grow-1.d-flex.justify-content-start(data-clipboard-target="source")
+      = todo.text
+    .btn-group
+      button.btn.btn-warning(type="button" data-action="click->clipboard#copy" data-clipboard-target="button") Copy
+      = link_to '&times;'.html_safe, list_todo_path(todo.list.id, todo.id), remote: true, method: :delete, class: 'btn btn-danger', data: { type: :json, action: 'ajax:success->todo-card#onRemoveTodoSuccess' }

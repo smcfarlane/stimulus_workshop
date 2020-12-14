@@ -1,0 +1,6 @@
+.card.text-white.bg-secondary.mb-3(data-controller="list-card")
+  .card-body.d-flex.justify-content-between
+    = link_to list_path(list), class: 'text-decoration-none' do
+      h5.card-title.text-white= list.name
+    = link_to '&times;'.html_safe, list_path(list), remote: true, method: :delete, class: 'btn btn-danger', data: { type: :json, action: 'ajax:success->list-card#onRemoveListSuccess', confirm: 'Are you sure you want to remove this list? All todos for this list will also be removed.' }
+

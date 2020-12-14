@@ -1,0 +1,21 @@
+doctype html
+html.h-100
+  head
+    title
+      | StimulusWorkshop
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  body.d-flex.h-100.text-center.text-white.bg-dark
+    .cover-container.d-flex.w-100.h-100.p-3.mx-auto.flex-column
+      header.mb-auto
+        div.d-flex.justify-content-between
+          h3.mb-0 Stimulus Workshop
+          nav.nav.nav-masthead.justify-content-center
+            a.nav-link.active aria-current="page" href="/"  Lists
+      main.px-3
+        h1 Todo Lists
+        = yield
+      footer.mt-auto.text-white-50
+        p Stimulus Workshop created by Steven McFarlane
