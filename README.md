@@ -24,4 +24,5 @@ Then, navigate to http://localhost:3000/.
 
 ## Branches
 
-The main branch contains a full example including stimulus controllers and jest tests
+- main: contains a full example including stimulus controllers and jest tests
+- build_controllers: contains controllers, models, views and jest tests but no stimulus code.  Use this branch to try writing the controllers yourself
