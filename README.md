@@ -2,11 +2,10 @@
 
 ## Setup
 
-###Requirements:
+### Requirements:
 
-Ruby Version: 2.6.6
-
-Database: sqlite
+- Ruby Version: 2.6.6
+- Database: sqlite
 
 ```sh
 git clone git@github.com:smcfarlane/stimulus_workshop.git
