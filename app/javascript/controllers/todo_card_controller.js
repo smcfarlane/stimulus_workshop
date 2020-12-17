@@ -5,16 +5,6 @@ export default class extends Controller {
   static targets = ['check']
   static values = { url: String, completed: Boolean }
 
-  connect() {
-    console.log('todo card controller', this.urlValue)
-  }
-
-  onRemoveTodoSuccess(event) {
-    var data = event.detail[0]
-    alert(data.msg)
-    this.element.remove()
-  }
-
   onTodoCheckChanged() {
     if (this.checkTarget.checked) {
       this.completeTodo()
@@ -24,14 +14,32 @@ export default class extends Controller {
   }
 
   completeTodo() {
-    this.updateTodo({ completed: true })
+    this.updateTodo({ completed: true }, () => this.reward())
   }
 
   uncompleteTodo() {
-    this.updateTodo({ completed: false })
+    this.updateTodo({ completed: false }, () => {})
   }
 
-  updateTodo(data) {
+  reward() {
+    var intervalID
+    var green = false
+    var count = 0
+    intervalID = setInterval(() => {
+      if (green) {
+        this.element.classList.add('bg-success')
+        this.element.classList.remove('bg-secondary')
+      } else {
+        this.element.classList.add('bg-secondary')
+        this.element.classList.remove('bg-success')
+        if (count > 10) { clearInterval(intervalID) }
+      }
+      green = !green
+      count += 1
+    }, 150)
+  }
+
+  updateTodo(data, cb) {
     fetch(this.urlValue, {
       method: 'PATCH',
       body: JSON.stringify({ todo: data }),
@@ -42,6 +50,6 @@ export default class extends Controller {
       credentials: 'same-origin'
     })
       .then((response) => response.text())
-      .then((data) => console.log(data))
+      .then(cb)
   }
 }
