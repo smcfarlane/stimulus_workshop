@@ -1,7 +1,11 @@
-# Setup
-Requirements:
+# Sitmulus JS Workshop
+
+## Setup
+
+###Requirements:
 
 Ruby Version: 2.6.6
+
 Database: sqlite
 
 ```sh
@@ -18,6 +22,6 @@ bundle exec rails s
 
 Then, navigate to http://localhost:3000/.
 
-# Branches
+## Branches
 
 The main branch contains a full example including stimulus controllers and jest tests

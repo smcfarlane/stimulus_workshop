@@ -45,6 +45,6 @@ class TodosController < ApplicationController
   end
 
   def todo_update_params
-    params.require(:todo).permit(:complete)
+    params.require(:todo).permit(:completed)
   end
 end
