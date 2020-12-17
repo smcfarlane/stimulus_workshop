@@ -1,4 +1,4 @@
-.card.text-dark.bg-warning.mb-3(data-controller="temp-message")
+.card.text-dark.bg-warning.mb-3
   .card-body.d-flex.justify-content-between
     = @todo.errors.full_messages.join(', ')
-    button.btn.btn-danger.text-white(type="button" data-action="click->temp-message#remove") &times;
+    button.btn.btn-danger.text-white(type="button") &times;

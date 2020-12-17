@@ -1,10 +1,10 @@
-.d-flex.flex-column(data-controller="create" data-create-target="container")
+.d-flex.flex-column
   .p-3.w-100.d-flex.flex-column.justify-content-center.align-items-center
-    button.btn.btn-secondary.mb-2(data-action="click->create#onShowForm") New List
-    = form_for @new_list, remote: true, html: { class: 'w-100', style: 'display: none;' }, data: { type: :html, action: 'ajax:success->create#onCreate', 'create-target': 'form' } do |f|
+    button.btn.btn-secondary.mb-2 New List
+    = form_for @new_list, remote: true, html: { class: 'w-100', style: 'display: none;' }, data: { type: :html } do |f|
       .d-flex.justify-content-center.mb-3
         .form-floating.pr-2.flex-grow-1
-          = f.text_field :name, placeholder: 'New List Name', class: 'form-control', 'data-create-target': 'textField'
+          = f.text_field :name, placeholder: 'New List Name', class: 'form-control'
           = f.label :name, 'New List Name'
         button.btn.btn-secondary.horizontal-form-btn(type="submit") Save
 
