@@ -13,17 +13,18 @@ export default class extends Controller {
     }
   }
 
-  completeTodo() {
-    this.updateTodo({ completed: true }, () => this.reward())
+  async completeTodo() {
+    await this.updateTodo({ completed: true })
+    this.reward()
   }
 
-  uncompleteTodo() {
-    this.updateTodo({ completed: false }, () => {})
+  async uncompleteTodo() {
+    await this.updateTodo({ completed: false })
   }
 
   reward() {
     var intervalID
-    var green = false
+    var green = true
     var count = 0
     intervalID = setInterval(() => {
       if (green) {
@@ -39,8 +40,8 @@ export default class extends Controller {
     }, 150)
   }
 
-  updateTodo(data, cb) {
-    fetch(this.urlValue, {
+  async updateTodo(data) {
+    return fetch(this.urlValue, {
       method: 'PATCH',
       body: JSON.stringify({ todo: data }),
       headers: {
@@ -50,6 +51,5 @@ export default class extends Controller {
       credentials: 'same-origin'
     })
       .then((response) => response.text())
-      .then(cb)
   }
 }

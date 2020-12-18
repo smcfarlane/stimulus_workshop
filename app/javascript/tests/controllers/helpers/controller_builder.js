@@ -17,7 +17,9 @@ export default class {
     return new this.controller({
       scope: {
         data: {},
-        element: {}
+        element: {
+          classList: new ClassList()
+        }
       },
     })
   }
