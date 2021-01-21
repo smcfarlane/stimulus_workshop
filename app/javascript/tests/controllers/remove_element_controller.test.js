@@ -11,5 +11,6 @@ describe('ListCardController', () => {
 
     expect(global.alert).toHaveBeenCalledWith(msg)
     expect(controller.element.remove).toHaveBeenCalled()
+    global.alert = undefined
   })
 })
